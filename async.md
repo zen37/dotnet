@@ -12,7 +12,7 @@ Having both asynchronous and synchronous methods for creating entities can be us
    - **Implementation**: Typically uses `async` and `await` keywords in C# to handle tasks asynchronously.
 
    ```csharp
-   public Task<Group> CreateAsync(Group group)
+   public Task<Header> CreateAsync(Header Header)
    {
        // Asynchronous implementation, e.g., database operation
    }
@@ -24,7 +24,7 @@ Having both asynchronous and synchronous methods for creating entities can be us
    - **Implementation**: Directly performs the operation and returns the result.
 
    ```csharp
-   public Group CreateSync(Group group)
+   public Header CreateSync(Header Header)
    {
        // Synchronous implementation, e.g., in-memory operation
    }
@@ -51,28 +51,28 @@ Having both asynchronous and synchronous methods for creating entities can be us
 Here’s an example showing how both asynchronous and synchronous methods might be defined in a service:
 
 ```csharp
-public interface IGroupService
+public interface IHeaderService
 {
-    Task<Group> CreateAsync(Group group);
-    Group CreateSync(Group group);
+    Task<Header> CreateAsync(Header Header);
+    Header CreateSync(Header Header);
 }
 
-public class GroupService : IGroupService
+public class HeaderService : IHeaderService
 {
-    public async Task<Group> CreateAsync(Group group)
+    public async Task<Header> CreateAsync(Header Header)
     {
         // Example async implementation, e.g., database save
-        // await dbContext.Groups.AddAsync(group);
+        // await dbContext.Headers.AddAsync(Header);
         // await dbContext.SaveChangesAsync();
-        return group;
+        return Header;
     }
 
-    public Group CreateSync(Group group)
+    public Header CreateSync(Header Header)
     {
         // Example sync implementation, e.g., in-memory save
-        // dbContext.Groups.Add(group);
+        // dbContext.Headers.Add(Header);
         // dbContext.SaveChanges();
-        return group;
+        return Header;
     }
 }
 ```

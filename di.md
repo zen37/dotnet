@@ -1,3 +1,21 @@
+# Summary
+
+1. **Service Registration**: 
+   ```csharp
+   builder.Services.AddScoped<IService<Header>, HeaderService>();
+   ```
+   You register the HeaderService implementation under the generic IService<Header> interface.
+   This means that whenever IService<Header> is required, the DI container will provide an instance of HeaderService.
+
+2. **Service Injection**: 
+   When the XCreateValidation class is instantiated, the DI container injects an instance of IService<Header> (which is actually a HeaderService):
+   ```csharp
+   public XCreateValidation(IService<Header> HeaderService)
+   ```
+
+The code ensures that the `HeaderService` is properly registered and injected where needed.
+
+
 The choice between `Scoped`, `Singleton`, and `Transient` lifetimes in dependency injection depends on the intended lifespan and usage pattern of the service. Here’s a breakdown of each lifetime and why `Scoped` might be chosen for service registrations:
 
 ### Lifetimes in Dependency Injection
