@@ -9,6 +9,17 @@ https://github.com/sswietoniowski/learning-aspnetcore-webapi-7-building-minimal-
 https://github.com/dotnet/AspNetCore.Docs.Samples/tree/main/fundamentals/minimal-apis/samples
 
 
+# Naming
+In RESTful API design, it's common to use the singular form for creating a new resource, and the plural form for retrieving a collection of resources. This helps to clarify the intent of the API endpoint.
+
+Here's the updated summary:
+
+POST /api/v1/coupon (create a new coupon)
+GET /api/v1/coupons (list all coupons)
+GET /api/v1/coupon/:id (get a specific coupon by ID)
+GET /api/v1/coupons/user/:userId (list coupons for a specific user)
+GET /api/v1/coupons/active (list active coupons)
+
 
 # Filters in Minimal API apps
 
